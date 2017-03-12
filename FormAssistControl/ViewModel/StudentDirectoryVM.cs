@@ -7,9 +7,9 @@ using Xamarin.Forms;
 namespace FormAssistControl
 {
 	// ViewModel that will load students into student`s collection
-	public class SudentDirectoryVM:ObservableBaseObject
+	public class StudentDirectoryVM:ObservableBaseObject
 	{
-		public ObservableCollection<Student> students { get; set; }
+		public ObservableCollection<Student> Students { get; set; }
 
 		bool isBusy = false;
 		public bool IsBusy
@@ -24,9 +24,9 @@ namespace FormAssistControl
 			set;
 		}
 
-		public SudentDirectoryVM()
+		public StudentDirectoryVM()
 		{
-			students = new ObservableCollection<FormsAssistControl.Student>();
+			Students = new ObservableCollection<FormsAssistControl.Student>();
 			IsBusy = false;
 			LoadDirectoryCommand = new Command((obj) => LoadDirectory());
 		}
@@ -43,7 +43,7 @@ namespace FormAssistControl
 
 				foreach (var student in loadedDirectory.Students) 
 				{
-					students.Add(student);
+					Students.Add(student);
 				}
 
 				IsBusy = false;

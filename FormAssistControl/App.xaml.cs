@@ -8,7 +8,10 @@ namespace FormAssistControl
 		{
 			InitializeComponent();
 
-			MainPage = new FormAssistControlPage();
+			//MainPage = new FormAssistControlPage();
+
+			// changing to navigation page to use two pages
+			MainPage = new NavigationPage(new FormAssistControlPage());
 		}
 
 		protected override void OnStart()

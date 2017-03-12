@@ -30,6 +30,9 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="View\FormAssistControlPage.xaml" />
+    <EmbeddedResource Include="View\StudentDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -42,8 +45,11 @@
     <Compile Include="Model\Entities\Student.cs" />
     <Compile Include="Model\Entities\StudentDirectory.cs" />
     <Compile Include="Model\Services\StudentDirectoryService.cs" />
-    <Compile Include="ViewModel\SudentDirectoryVM.cs" />
+    <Compile Include="ViewModel\StudentDirectoryVM.cs" />
     <Compile Include="Model\Entities\ObservableBaseObject.cs" />
+    <Compile Include="View\StudentDetailPage.xaml.cs">
+      <DependentUpon>StudentDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
