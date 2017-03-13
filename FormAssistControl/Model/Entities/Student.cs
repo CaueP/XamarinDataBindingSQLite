@@ -3,9 +3,9 @@ using FormAssistControl;
 
 namespace FormsAssistControl
 {
-	public class Student:ObservableBaseObject
+	public class Student:ObservableBaseObject,IKeyObject
 	{
-
+		public string Key { get; set;}
 
 		private string name;
 
@@ -46,6 +46,7 @@ namespace FormsAssistControl
 			get { return average; }
 			set { average = value; OnPropertyChanged();}
 		}
+
 
 	}
 }

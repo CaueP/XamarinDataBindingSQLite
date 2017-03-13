@@ -8,11 +8,17 @@ namespace FormsAssistControl
 	{
 		public static StudentDirectory LoadStudentDirectory()
 		{
+			// get students stored on database
+			DatabaseManager dbManager = new DatabaseManager();
+			ObservableCollection<Student> students = new ObservableCollection<Student>(dbManager.GetAllItems<Student>());
 
-
-			ObservableCollection<Student> students = new ObservableCollection<Student>();
 			StudentDirectory studentDirectory = new StudentDirectory();
 
+			if (students.Any())
+			{
+				studentDirectory.Students = students;
+				return studentDirectory;
+			}
 
 			students = new ObservableCollection<Student>();
 
@@ -33,8 +39,13 @@ namespace FormsAssistControl
 				student.Group = group;
 				student.StudentNumber = rdn.Next(12384748, 32384748).ToString();
 				student.Average = rdn.Next(100, 1000) / 10;
+				// setting the student key
+				student.Key = student.StudentNumber;
 
 				students.Add(student);
+
+				// save student generated on the database
+				dbManager.SaveValue<Student>(student);
 
 			}
 			studentDirectory.Students = students;
